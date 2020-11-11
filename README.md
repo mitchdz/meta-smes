@@ -6,7 +6,7 @@ mkdir -p smes-yocto && cd smes-yocto
 # clone sources into poky
 git clone git://git.yoctoproject.org/poky -b gatesgarth
 git clone https://github.com/Freescale/meta-freescale poky/meta-freescale
-git clone https://github.com/mitchdz/meta-smes poky/meta-smes
+git clone https://github.com/mitchdz/meta-smes        poky/meta-smes
 
 # create build directory
 mkdir -p smes-build && cd smes-build
