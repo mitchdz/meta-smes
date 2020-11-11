@@ -10,6 +10,7 @@ git clone https://github.com/mitchdz/meta-smes poky/meta-smes
 mkdir -p smes-build && cd smes-build
 
 sed -i 's/poky/smes/g' ../poky/.templateconf
+. ../poky/oe-init-build-env .
 
 bitbake-layers add-layer \
   ../poky/meta-freescale \
