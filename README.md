@@ -14,11 +14,6 @@ mkdir -p smes-build && cd smes-build
 # use meta-smes local.conf and source oe-init-build-env
 sed -i 's/poky/smes/g' ../poky/.templateconf
 . ../poky/oe-init-build-env .
-
-# add bblayers
-bitbake-layers add-layer \
-  ../poky/meta-freescale \
-  ../poky/meta-smes
 ```
 
 To create smes-os
