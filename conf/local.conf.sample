@@ -276,5 +276,5 @@ PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
 # this doesn't mean anything to you.
 CONF_VERSION = "1"
 
-MACHINE = "imx8mqevk"
+MACHINE = "imx8mmevk"
 PREFERRED_PROVIDER_virtual/kernel = "linux-imx_5.4"
