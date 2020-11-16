@@ -1,3 +1,9 @@
+# meta-smes
+
+## About
+meta-smes is the meta-layer to create core-image-smes-os
+
+## Building
 
 To create the build directory and clone sources:
 ```bash
