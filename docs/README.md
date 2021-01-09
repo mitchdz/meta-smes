@@ -24,5 +24,5 @@ sed -i 's/poky/smes/g' ../poky/.templateconf
 
 To create smes-os
 ```bash
-bitbake core-image-smes-os
+bitbake core-image-smes
 ```
