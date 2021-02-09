@@ -12,8 +12,6 @@ PV = "1.0+${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-EXTRA_OEMAke = "'CC=${CC}'"
-
 do_install () {
 	oe_runmake
 }
