@@ -14,9 +14,9 @@ MACHINE=imx8mmevk DISTRO=fsl-imx-wayland source imx-setup-release.sh -b build
 bitbake-layers add-layer ../sources/meta-smes
 ```
 
-To create smes-os
+To create the image
 ```bash
-bitbake core-image-smes-os
+bitbake core-image-base
 ```
 
 
