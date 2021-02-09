@@ -7,22 +7,19 @@ meta-smes is the meta-layer to create core-image-smes-os
 
 To create the build directory and clone sources:
 ```bash
-mkdir -p smes-yocto && cd smes-yocto
-
-# clone sources into poky
-git clone git://git.yoctoproject.org/poky -b gatesgarth
-git clone https://github.com/Freescale/meta-freescale poky/meta-freescale
-git clone https://github.com/mitchdz/meta-smes        poky/meta-smes
-
-# create build directory
-mkdir -p build && cd build
-
-# use meta-smes local.conf/bblayers.conf and source oe-init-build-env
-sed -i 's/poky/smes/g' ../poky/.templateconf
-. ../poky/oe-init-build-env .
+repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-zeus -m imx-5.4.3-2.0.0.xml
+repo sync
+MACHINE=imx8mmevk DISTRO=fsl-imx-wayland source imx-setup-release.sh -b build
 ```
 
 To create smes-os
 ```bash
-bitbake core-image-smes
+bitbake core-image-smes-os
+```
+
+
+## Note
+For consecutive builds, source the setup-environment like so:
+```bash
+source setup-environment build
 ```
