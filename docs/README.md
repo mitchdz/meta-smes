@@ -4,6 +4,15 @@
 meta-smes is the meta-layer to create core-image-smes-os
 
 ## Building
+Install repo to your system if you do not have it
+```bash
+mkdir ~/bin/
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+export PATH=~/bin/:$PATH
+```
+
+
 
 To create the build directory and clone sources:
 ```bash
