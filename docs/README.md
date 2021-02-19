@@ -20,7 +20,7 @@ repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-lin
 repo sync
 git clone https://github.com/mitchdz/meta-smes sources/meta-smes
 MACHINE=imx8mmevk DISTRO=fsl-imx-wayland source imx-setup-release.sh -b build
-echo 'IMAGE_INSTALL_append = "smart-doorbell"' >> conf/local.conf
+echo 'IMAGE_INSTALL_append = "smart-doorbell opencsd"' >> conf/local.conf
 bitbake-layers add-layer ../sources/meta-smes
 ```
 
