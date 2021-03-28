@@ -16,14 +16,9 @@ PV = "1.0+${SRCPV}"
 
 S = "${WORKDIR}/git"
 
-
-#EXTRA_OEMAKE = "DESTDIR=${D} -march=armv8.1-a -mtune=cortex-a53 "
+# Makefile uses DESTDIR to determine where to install to
 EXTRA_OEMAKE = "DESTDIR=${D}"
-#
-## add LDFLAGS to TARGET_CC_ARCH. This is a common workaround when LDFLAGS is not being
-## properly passed to the linker.
-##TARGET_CC_ARCH += "${LDFLAGS}"
-#
+
 ## do not parallel thread
 PARALLEL_MAKE = ""
 

@@ -24,6 +24,5 @@ do_install() {
     install -d ${D}${bindir}
     install -m 0755 ${S}/Embedded_IDS/Embedded_IDS ${D}${bindir}
 }
-#install -m 0755 cameracapture ${D}${bindir}
 
 FILES_${PN} = "${bindir}"
