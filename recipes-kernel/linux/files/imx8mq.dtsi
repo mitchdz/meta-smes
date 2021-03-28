@@ -271,7 +271,7 @@
 			 <&clk IMX8MQ_CLK_DRAM_CORE>, <&clk IMX8MQ_CLK_DRAM_ALT_ROOT>,
 			 <&clk IMX8MQ_SYS1_PLL_40M>, <&clk IMX8MQ_SYS1_PLL_400M>,
 			 <&clk IMX8MQ_SYS1_PLL_100M>, <&clk IMX8MQ_SYS1_PLL_800M>,
-			 <&clk IMX8MQ_CLK_NOC>, <&clk IMX8MQ_CLK_MAIN_AXI>,
+			 <&clk IMX8MQ_CLK_NOC>, <&clk IMX8MM_CLK_MAIN_AXI>,
 			 <&clk IMX8MQ_CLK_AHB>, <&clk IMX8MQ_CLK_25M>,
 			 <&clk IMX8MQ_SYS2_PLL_333M>, <&clk IMX8MQ_SYS1_PLL_133M>;
 		clock-names = "dram_pll", "dram_alt_src", "dram_apb_src", "dram_apb_pre_div",
@@ -1545,7 +1545,7 @@
 		reg = <0x0 0x28440000 0x0 0x10000>;
 		arm,primecell-periphid = <0xbb95d>;
 		cpu = <&A53_0>;
-		clocks = <&clk IMX8MQ_CLK_MAIN_AXI>;
+		clocks = <&clk IMX8MM_CLK_MAIN_AXI>;
 		clock-names = "apb_pclk";
 		status = "okay";
 
@@ -1563,7 +1563,7 @@
 		reg = <0x0 0x28540000 0x0 0x10000>;
 		arm,primecell-periphid = <0xbb95d>;
 		cpu = <&A53_1>;
-		clocks = <&clk IMX8MQ_CLK_MAIN_AXI>;
+		clocks = <&clk IMX8MM_CLK_MAIN_AXI>;
 		clock-names = "apb_pclk";
 		status = "okay";
 
@@ -1581,7 +1581,7 @@
 		reg = <0x0 0x28640000 0x0 0x10000>;
 		arm,primecell-periphid = <0xbb95d>;
 		cpu = <&A53_2>;
-		clocks = <&clk IMX8MQ_CLK_MAIN_AXI>;
+		clocks = <&clk IMX8MM_CLK_MAIN_AXI>;
 		clock-names = "apb_pclk";
 		status = "okay";
 
@@ -1599,7 +1599,7 @@
 		reg = <0x0 0x28740000 0x0 0x10000>;
 		arm,primecell-periphid = <0xbb95d>;
 		cpu = <&A53_3>;
-		clocks = <&clk IMX8MQ_CLK_MAIN_AXI>;
+		clocks = <&clk IMX8MM_CLK_MAIN_AXI>;
 		clock-names = "apb_pclk";
 		status = "okay";
 
@@ -1666,7 +1666,7 @@
 	funnel1: funnel@28c03000 {
 		compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 		reg = <0x0 0x28c03000 0x0 0x1000>;
-		clocks = <&clk IMX8MQ_CLK_MAIN_AXI>;
+		clocks = <&clk IMX8MM_CLK_MAIN_AXI>;
 		clock-names = "apb_pclk";
 		status = "okay";
 
@@ -1709,7 +1709,7 @@
 	etf@28c04000 {
 		compatible = "arm,coresight-tmc", "arm,primecell";
 		reg = <0x0 0x28c04000 0x0 0x1000>;
-		clocks = <&clk IMX8MQ_CLK_MAIN_AXI>;
+		clocks = <&clk IMX8MM_CLK_MAIN_AXI>;
 		clock-names = "apb_pclk";
 		status = "okay";
 
@@ -1733,7 +1733,7 @@
 	etr@28c06000 {
 		compatible = "arm,coresight-tmc", "arm,primecell";
 		reg = <0x0 0x28c06000 0x0 0x1000>;
-		clocks = <&clk IMX8MQ_CLK_MAIN_AXI>;
+		clocks = <&clk IMX8MM_CLK_MAIN_AXI>;
 		clock-names = "apb_pclk";
 		status = "okay";
 
