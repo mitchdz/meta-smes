@@ -1,0 +1,42 @@
+diff --git a/Makefile b/Makefile
+index 2efab0b..6ed488e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -20,7 +20,7 @@
+ 
+ # PREFIX is environment variable, but if it is not set, then set default value
+ ifeq ($(PREFIX),)
+-    PREFIX := /usr/local
++    PREFIX := /usr
+ endif
+ 
+ SHELL := /bin/bash
+@@ -35,6 +35,8 @@ OUTDIR ?= build
+ .PHONY:all
+ all:$(OUTDIR)/smart-doorbell
+ 
++CCFLAGS += "-O"
++
+ # Smart Doorbell CLI app creation
+ $(OUTDIR)/smart-doorbell:$(OUTDIR)/libCamera.so $(OUTDIR)/include/Camera.h
+ 	$(CC) -Wl,-R -Wl,$(CURDIR)/$(OUTDIR) $(CCFLAGS) -pthread -D$(DEFINES) -I$(OUTDIR)/include -L$(OUTDIR) -lCamera -lTimer -lGPIO -li2c -lI2C -lSPI -I$(OUTDIR)/include -o $@ src/main/SmartDoorbellCLI.c
+@@ -95,17 +97,7 @@ install:
+ 	install -m 644 $(OUTDIR)/libI2C.so $(DESTDIR)$(PREFIX)/lib/
+ 	install -m 644 $(OUTDIR)/libGPIO.so $(DESTDIR)$(PREFIX)/lib/
+ 	install -m 644 $(OUTDIR)/libTimer.so $(DESTDIR)$(PREFIX)/lib/
+-	install -m 644 $(OUTDIR)/libBoard.so $(DESTDIR)$(PREFIX)/lib/
+-	install -d $(DESTDIR)$(PREFIX)/include/
+-	install -m 644 $(OUTDIR)/include/$(BOARD).h $(DESTDIR)$(PREFIX)/include/
+-	install -m 644 $(OUTDIR)/include/$(BOARD)SPI.h $(DESTDIR)$(PREFIX)/include/
+-	install -m 644 $(OUTDIR)/include/Camera.h $(DESTDIR)$(PREFIX)/include/
+-	install -m 644 $(OUTDIR)/include/$(BOARD)I2C.h $(DESTDIR)$(PREFIX)/include/
+-	install -m 644 $(OUTDIR)/include/$(BOARD)GPIO.h $(DESTDIR)$(PREFIX)/include/
+-	install -m 644 $(OUTDIR)/include/$(BOARD)Timer.h $(DESTDIR)$(PREFIX)/include/
+-	install -d $(DESTDIR)$(PREFIX)/bin/
+-	install -m 644 $(OUTDIR)/smart-doorbell $(DESTDIR)$(PREFIX)/bin/
+ 
+ .PHONY:clean
+ clean:
+-	rm -rf $(OUTDIR)/
+\ No newline at end of file
++	rm -rf $(OUTDIR)/
