@@ -5,7 +5,6 @@ inherit packagegroup
 
 RDEPENDS_${PN} += "\
     smart-doorbell \
-    smart-doorbell-driver \
     opencsd \
     iot-ids \
     "
