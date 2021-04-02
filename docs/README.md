@@ -16,12 +16,16 @@ export PATH=~/bin/:$PATH
 
 To create the build directory and clone sources:
 ```bash
-repo init -u https://source.codeaurora.org/external/imx/imx-manifest  -b imx-linux-zeus -m imx-5.4.3-2.0.0.xml
+repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-gatesgarth -m imx-5.10.9-1.0.0.xml
 repo sync
 git clone https://github.com/mitchdz/meta-smes sources/meta-smes
+git clone -b gatesgarth https://git.yoctoproject.org/git/meta-arm sources/meta-arm
 MACHINE=imx8mmevk DISTRO=fsl-imx-wayland source imx-setup-release.sh -b build
-echo 'IMAGE_INSTALL_append = "packagegroup-iot-ids-imx8mm"' >> conf/local.conf
+echo 'IMAGE_INSTALL_append = "packagegroup-iot-ids-imx8mm perf"' >> conf/local.conf
+echo 'PACKAGECONFIG_append_pn-perf = " coresight"' >> conf/local.conf
 bitbake-layers add-layer ../sources/meta-smes
+bitbake-layers add-layer ../sources/meta-arm/meta-arm
+bitbake-layers add-layer ../sources/meta-arm/meta-arm-toolchain
 ```
 
 To create the image
