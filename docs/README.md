@@ -27,7 +27,7 @@ git clone -b gatesgarth https://git.yoctoproject.org/git/meta-arm sources/meta-a
 MACHINE=imx8mmevk DISTRO=fsl-imx-wayland source imx-setup-release.sh -b build
 
 # add required config options
-echo 'IMAGE_INSTALL_append = "packagegroup-iot-ids-imx8mm perf"' >> conf/local.conf
+echo 'IMAGE_INSTALL_append = " packagegroup-iot-ids-imx8mm perf "' >> conf/local.conf
 echo 'PACKAGECONFIG_append_pn-perf = " coresight"' >> conf/local.conf
 
 # add extra layers
