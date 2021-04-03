@@ -50,9 +50,12 @@ bitbake core-image-base
 
 Now the resulting image will have our special devicetree source include file in it.
 
-The final image will be located at tmp/deploy/images/imx8mmevk/core-image-base-imx8mmevk.wic.bz2
+The final image will be located at *tmp/deploy/images/imx8mmevk/core-image-base-imx8mmevk.wic.bz2*
 
-
+To extract the image, execute the following
+```bash
+$ bunzip2 -dk core-image-base-imx8mmevk.wic
+```
 
 ## Note
 For consecutive builds, source the setup-environment like so:
