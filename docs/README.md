@@ -33,6 +33,15 @@ To create the image
 bitbake core-image-base
 ```
 
+We need to add our special devicetree source file to the kernel build. To do that, we need to replace the old .dtsi file with our new one, and force the kernel to recompile.
+```bash
+cp ../sources/meta-smes/recipes-kernel/linux/files/imx8mm.dtsi tmp/work-shared/imx8mmevk/kernel-source/arch/arm64/boot/dts/freescale/
+bitbake -c compile -f linux-imx
+bitbake core-image-base
+```
+
+Now the resulting image will have our special devicetree source include file in it.
+
 
 ## Note
 For consecutive builds, source the setup-environment like so:
