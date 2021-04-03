@@ -1,7 +1,7 @@
 # meta-smes
 
 ## About
-meta-smes is the meta-layer to create core-image-smes-os
+meta-smes is the meta layer for the iot-ids project
 
 ## Building
 Install repo to your system if you do not have it
