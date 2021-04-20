@@ -9,7 +9,7 @@ DEPENDS = "i2c-tools"
 
 SRCREV = "${AUTOREV}"
 SRC_URI = "git://github.com/lvoytek/Smart-Doorbell.git;protocol=ssh;branch=driver-linux \
-           file://makefile_add_optimization_remove_missing_files.patch \
+           file://add_O_optimization_flag.patch \
            "
 
 PV = "1.0+${SRCPV}"
@@ -23,15 +23,19 @@ EXTRA_OEMAKE = "DESTDIR=${D}"
 PARALLEL_MAKE = ""
 
 do_compile() {
-	cd ${S}; oe_runmake
+    cd ${S}; oe_runmake
 }
 
 do_install() {
-	cd ${S}; oe_runmake install
+    cd ${S}; oe_runmake install
+
+    # smart-doorbell has a bad RPATH. remove it.
+    chrpath -d ${D}${bindir}/smart-doorbell
 }
 
 FILES_${PN} = "\
         ${base_libdir} \
+        ${bindir} \
         "
 
 INSANE_SKIP_${PN}-dev += "dev-elf"

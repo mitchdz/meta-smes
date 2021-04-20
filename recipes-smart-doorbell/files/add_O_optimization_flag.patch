@@ -1,0 +1,29 @@
+diff --git a/Makefile b/Makefile
+index 640ac3c..c352c99 100644
+--- a/Makefile
++++ b/Makefile
+@@ -20,7 +20,7 @@
+ 
+ # PREFIX is environment variable, but if it is not set, then set default value
+ ifeq ($(PREFIX),)
+-    PREFIX := /usr/local
++    PREFIX := /usr
+ endif
+ 
+ SHELL := /bin/bash
+@@ -35,6 +35,8 @@ OUTDIR ?= build
+ .PHONY:all
+ all:$(OUTDIR)/smart-doorbell
+ 
++CCFLAGS += "-O"
++
+ # Smart Doorbell CLI app creation
+ $(OUTDIR)/smart-doorbell:$(OUTDIR)/libCamera.so $(OUTDIR)/include/Camera.h
+ 	$(CC) -Wl,-R -Wl,$(CURDIR)/$(OUTDIR) $(CCFLAGS) -pthread -D$(DEFINES) -I$(OUTDIR)/include -L$(OUTDIR) -lCamera -lTimer -lGPIO -li2c -lI2C -lSPI -I$(OUTDIR)/include -o $@ src/main/SmartDoorbellCLI.c
+@@ -107,4 +109,4 @@ install:
+ 
+ .PHONY:clean
+ clean:
+-	rm -rf $(OUTDIR)/
+\ No newline at end of file
++	rm -rf $(OUTDIR)/
