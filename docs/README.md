@@ -1,7 +1,13 @@
 # meta-smes
 
+Secure Middlewear for Embedded Systems
+
 ## About
 meta-smes is the meta layer for the iot-ids project
+
+meta-smes aims to be a lightweight secure operating system for IoT that
+includes an IDS
+
 
 ## Building
 Install repo to your system if you do not have it
@@ -14,7 +20,9 @@ export PATH=~/bin/:$PATH
 
 To create the build directory and clone sources:
 ```bash
-repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-gatesgarth -m imx-5.10.9-1.0.0.xml
+repo init -u https://source.codeaurora.org/external/imx/imx-manifest \
+    -b imx-linux-gatesgarth \
+    -m imx-5.10.9-1.0.0.xml
 repo sync -j$(nproc)
 
 # clone extra layers
@@ -39,9 +47,12 @@ To create the image
 bitbake core-image-base
 ```
 
-We need to add our special devicetree source file to the kernel build. To do that, we need to replace the old .dtsi file with our new one, and force the kernel to recompile.
+We need to add our special devicetree source file to the kernel build.
+To do that, we need to replace the old .dtsi file with our new one, and force
+the kernel to recompile.
 ```bash
-cp ../sources/meta-smes/recipes-kernel/linux/files/imx8mm.dtsi tmp/work-shared/imx8mmevk/kernel-source/arch/arm64/boot/dts/freescale/
+cp ../sources/meta-smes/recipes-kernel/linux/files/imx8mm.dtsi \
+    tmp/work-shared/imx8mmevk/kernel-source/arch/arm64/boot/dts/freescale/
 bitbake -c compile -f linux-imx
 bitbake core-image-base
 ```
