@@ -12,12 +12,10 @@ chmod a+x ~/bin/repo
 export PATH=~/bin/:$PATH
 ```
 
-
-
 To create the build directory and clone sources:
 ```bash
 repo init -u https://source.codeaurora.org/external/imx/imx-manifest -b imx-linux-gatesgarth -m imx-5.10.9-1.0.0.xml
-repo sync
+repo sync -j$(nproc)
 
 # clone extra layers
 git clone https://github.com/mitchdz/meta-smes sources/meta-smes
