@@ -31,10 +31,16 @@ do_install() {
 
     # smart-doorbell has a bad RPATH. remove it.
     chrpath -d ${D}${bindir}/smart-doorbell
+    chmod +x ${D}${bindir}/smart-doorbell
 }
 
+FILES_SOLIBSDEV = ""
 FILES_${PN} = "\
-        ${base_libdir} \
+        ${libdir} \
+        ${libdir}/libTimer.so \
+        ${libdir}/libGPIO.so \
+        ${libdir}/libI2C.so \
+        ${libdir}/libSPI.so \
         ${bindir} \
         "
 
