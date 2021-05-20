@@ -2,3 +2,5 @@ hostname_pn-base-files = "smes"
 
 IMAGE_INSTALL_append = " packagegroup-iot-ids-imx8mm "
 PACKAGECONFIG_append_pn-perf = " coresight"
+
+IMAGE_FSTYPES += " wic "
