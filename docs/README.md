@@ -52,6 +52,8 @@ the kernel to recompile.
 ```bash
 cp ../sources/meta-smes/recipes-kernel/linux/files/imx8mm.dtsi \
     tmp/work-shared/imx8mmevk/kernel-source/arch/arm64/boot/dts/freescale/
+cp ../sources/meta-smes/recipes-kernel/linux/files/imx8mm-evk.dtsi \
+    tmp/work-shared/imx8mmevk/kernel-source/arch/arm64/boot/dts/freescale/
 bitbake -c compile -f linux-imx
 bitbake core-image-base
 ```
