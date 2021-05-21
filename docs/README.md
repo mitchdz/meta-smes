@@ -1,6 +1,6 @@
 # meta-smes
 
-Secure Middlewear for Embedded Systems
+Secure Middleware for Embedded Systems
 
 ## About
 meta-smes is the meta layer for the iot-ids project
