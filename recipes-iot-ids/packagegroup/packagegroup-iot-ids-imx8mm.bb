@@ -15,4 +15,5 @@ RDEPENDS_${PN} += "\
     openssh-ssh \
     openssh-sftp \
     perf \
+    apache2 \
     "
