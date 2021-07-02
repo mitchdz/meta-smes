@@ -39,6 +39,8 @@ cat ../sources/meta-smes/conf/local.conf.append >> conf/local.conf
 bitbake-layers add-layer ../sources/meta-smes
 bitbake-layers add-layer ../sources/meta-arm/meta-arm-toolchain
 bitbake-layers add-layer ../sources/meta-arm/meta-arm
+bitbake-layers add-layer ../sources/meta-openembedded/meta-webserver
+
 ```
 
 To create the image
